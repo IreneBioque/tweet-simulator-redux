@@ -5,3 +5,11 @@ export const addTweetAction = (state) => {
 
     }
 }
+
+export const deleteTweetAction = (id) => {
+    return {
+        type: "DELETE_TWEET",
+        payload: id
+
+    }
+}

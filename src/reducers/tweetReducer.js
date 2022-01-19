@@ -10,7 +10,12 @@ export default function tweetReducer(state = initialProps, action) {
                 // el nuevo tweet viene en el payload del action
                 tweets: [...state.tweets, action.payload]
             }
-            default:
-                return state;
+        case "DELETE_TWEET":
+            return {
+                ...state,
+                tweets: state.tweets.filter(tweet => tweet.id !== action.payload)
+            }
+        default:
+            return state;
     }
 }
