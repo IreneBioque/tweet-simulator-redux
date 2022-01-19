@@ -2,6 +2,7 @@
 import React from "react";
 import { Container } from 'react-bootstrap'
 import Menu from './components/Menu'
+import Modal from "./components/Modal";
 
 // Redux
 
@@ -16,6 +17,9 @@ function App() {
     <Container className="mt-5" >
       <h1 className="text-center" >TWEETS</h1>
     </Container>
+    <Modal>
+      Form para añadir nuevo Tweet
+    </Modal>
     </Provider>
   );
 }
