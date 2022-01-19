@@ -1,9 +1,14 @@
 import React, {useState, } from "react";
 import { Form, Button, Alert } from "react-bootstrap";
+import { v4 as uuidv4 } from 'uuid';
+import moment from "moment";
 
 // Redux
 import { useDispatch, useSelector } from "react-redux";
 import { validationFormAddTweetAction } from "../actions/validationsAction";
+import { addTweetAction } from "../actions/tweetsAction"
+// para cerrar el formulario
+import { openCloseAddTweetModalAction } from '../actions/modalsActions'
 
 export default function FormAddTweet() {
     // Guardamos los valores en los etados locales del componente para no darle carga a redux. Cosas sencillas = locales, cosas mas complicadas = estados de redux
@@ -16,6 +21,8 @@ export default function FormAddTweet() {
     const dispatch = useDispatch();
     // Ejecución de las acciones
     const errorForm = state => dispatch(validationFormAddTweetAction(state));
+    const addTweet = state => dispatch(addTweetAction(state));
+    const closeModal = state => dispatch(openCloseAddTweetModalAction(state));
 
     // Obtener estado de la validación del formulario
     const errorFormValue = useSelector(state => state.validations.errorFormAddTweet)
@@ -37,7 +44,18 @@ export default function FormAddTweet() {
             console.log('Todos los campos son obligatorios')
         } else {
             // El formulario se envia correctamente al pasar el error a false
-            errorForm(false)
+            errorForm(false);
+            addTweet({
+                // id aleatorio
+                id: uuidv4(),
+                 // como tenemos el desestructiring arriba no hace falta poner name : formValue.name ni tweet: tweet
+                name,
+                tweet,
+                date: moment()
+
+            })
+            // así cerramos el modal
+            closeModal(false)
             console.log('Tweet enviado correctamente')
         }
     }
