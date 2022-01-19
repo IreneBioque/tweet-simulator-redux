@@ -3,6 +3,7 @@ import React from "react";
 import { Container } from 'react-bootstrap'
 import Menu from './components/Menu'
 import Modal from "./components/Modal";
+import FormAddTweet from "./components/FormAddTweet";
 
 // Redux
 
@@ -18,7 +19,7 @@ function App() {
       <h1 className="text-center" >TWEETS</h1>
     </Container>
     <Modal>
-      Form para añadir nuevo Tweet
+      <FormAddTweet/>
     </Modal>
     </Provider>
   );
