@@ -26,7 +26,7 @@ function Menu () {
         className="d-inline.block align-top mr-4" />
         Tweets simulator Redux
         </Navbar.Brand>
-    <Button variant="outline-success" onClick={openModal}>Nuevo Tweet</Button>
+    <Button variant="outline-success" onClick={openModal}>Añadir Tweet</Button>
     </Container>
 
     </Navbar>
