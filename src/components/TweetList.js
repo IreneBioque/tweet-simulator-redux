@@ -33,7 +33,7 @@ function Tweet(props) {
             <Card.Body>
                 <Card.Title>{tweet.name}</Card.Title>
                 <Card.Text>{tweet.tweet}</Card.Text>
-                <Button variant="danger" role={"delete"} onClick={() => deleteTweet(tweet.id)}>Eliminar Tweet</Button>
+                <Button variant="danger" onClick={() => deleteTweet(tweet.id)}>Eliminar Tweet</Button>
             </Card.Body>
             
         </Card>
